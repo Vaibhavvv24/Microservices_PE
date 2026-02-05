@@ -13,10 +13,10 @@
     </parent>
     
     <groupId>com.quizplatform</groupId>
-    <artifactId>quiz-service</artifactId>
+    <artifactId>student-service</artifactId>
     <version>1.0.0</version>
-    <name>quiz-service</name>
-    <description>Quiz Microservice for Quiz Platform</description>
+    <name>student-service</name>
+    <description>Student Microservice for Quiz Platform</description>
     
     <properties>
         <java.version>17</java.version>
@@ -88,4 +88,3 @@
         </plugins>
     </build>
 </project>
-
