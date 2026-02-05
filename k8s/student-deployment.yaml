@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: student-service
+  namespace: quiz-platform
+  labels:
+    app: student-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: student-service
+  template:
+    metadata:
+      labels:
+        app: student-service
+    spec:
+      containers:
+      - name: student-service
+        image: student-service:1.0.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080 # Web port
+        - containerPort: 9090 # gRPC port (if acting as server too)
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: "default"
+        # We need to tell the client where to find quiz-service
+        # In K8s, it's quiz-service.quiz-platform.svc.cluster.local:9090
+        - name: GRPC_CLIENT_QUIZ_SERVICE_ADDRESS
+          value: "static://quiz-service.quiz-platform.svc.cluster.local:9090"
+        - name: GRPC_CLIENT_QUIZ_SERVICE_NEGOTIATION_TYPE
+          value: "PLAINTEXT" 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: student-service
+  namespace: quiz-platform
+spec:
+  selector:
+    app: student-service
+  ports:
+  - port: 8080
+    targetPort: 8080
+    name: http

@@ -29,3 +29,10 @@ logging:
   level:
     com.quizplatform.student: DEBUG
     org.springframework.web: INFO
+
+grpc:
+  client:
+    quiz-service:
+      address: ${GRPC_CLIENT_QUIZ_SERVICE_ADDRESS:static://localhost:9090}
+      negotiation-type: ${GRPC_CLIENT_QUIZ_SERVICE_NEGOTIATION_TYPE:PLAINTEXT}
+

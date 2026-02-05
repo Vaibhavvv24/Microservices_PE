@@ -3,6 +3,7 @@ com/quizplatform/student/service/QuizAttemptService.class
 com/quizplatform/student/dto/StudentDTO.class
 com/quizplatform/student/controller/QuizAttemptController.class
 com/quizplatform/student/repository/StudentRepository.class
+com/quizplatform/student/controller/StudentQuizController.class
 com/quizplatform/student/service/QuizAttemptServiceImpl.class
 com/quizplatform/student/service/StudentService.class
 com/quizplatform/student/exception/QuizAttemptNotFoundException.class

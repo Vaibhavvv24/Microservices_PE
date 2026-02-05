@@ -1,0 +1,35 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: quiz-gateway
+  namespace: quiz-platform
+spec:
+  selector:
+    istio: ingressgateway # use istio default controller
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "*"
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: student-service-vs
+  namespace: quiz-platform
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - quiz-gateway
+  http:
+  - match:
+    - uri:
+        prefix: /student
+    route:
+    - destination:
+        host: student-service.quiz-platform.svc.cluster.local
+        port:
+          number: 8080

@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quiz-service
+  namespace: quiz-platform
+  labels:
+    app: quiz-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: quiz-service
+  template:
+    metadata:
+      labels:
+        app: quiz-service
+    spec:
+      containers:
+      - name: quiz-service
+        image: quiz-service:1.0.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 9090 # gRPC port
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: "default"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: quiz-service
+  namespace: quiz-platform
+spec:
+  selector:
+    app: quiz-service
+  ports:
+  - port: 9090
+    targetPort: 9090
+    name: grpc

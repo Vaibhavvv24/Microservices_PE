@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package com.quizplatform.common;
+
+option java_multiple_files = true;
+option java_package = "com.quizplatform.common";
+option java_outer_classname = "QuizServiceProto";
+
+service QuizService {
+  rpc GetQuiz (QuizRequest) returns (QuizResponse);
+  rpc SubmitResult (ResultRequest) returns (ResultResponse);
+}
+
+message QuizRequest {
+  string quizId = 1;
+}
+
+message QuizResponse {
+  string quizId = 1;
+  string title = 2;
+  repeated Question questions = 3;
+}
+
+message Question {
+  string questionId = 1;
+  string text = 2;
+  repeated string options = 3;
+}
+
+message ResultRequest {
+  string quizId = 1;
+  string studentId = 2;
+  int32 score = 3;
+}
+
+message ResultResponse {
+  string message = 1;
+  bool success = 2;
+}

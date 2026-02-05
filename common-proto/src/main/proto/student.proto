@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package com.quizplatform.common;
+
+option java_multiple_files = true;
+option java_package = "com.quizplatform.common";
+option java_outer_classname = "StudentServiceProto";
+
+// Currently Student Service is primarily a client of Quiz Service, 
+// but we can define messages here if Student Service needs to expose RPCs later.
+
+message StudentProfile {
+  string studentId = 1;
+  string name = 2;
+  string email = 3;
+}
