@@ -1,271 +1,150 @@
-# Quiz Platform Microservices
+# Microservices Service Mesh Project
 
-A microservices-based quiz platform built with Spring Boot, featuring separate services for quiz management and student management.
+A robust microservices architecture demonstrating **Spring Boot**, **gRPC**, **Kubernetes**, and **Istio Service Mesh**. This project simulates a Quiz Platform where students can fetch quizzes and submit results, with secure and efficient inter-service communication managed by Istio.
 
-## Architecture Overview
+## 🏗 System Architecture
 
-This project implements a microservices architecture with two independent services:
+The system consists of two core microservices communicating via **gRPC** (Google Remote Procedure Call) for high performance and strong typing.
 
+```mermaid
+graph LR
+    User[User / Client] -- HTTP/1.1 --> GW[Istio Ingress Gateway]
+    GW -- HTTP --> SS[Student Service]
+    
+    subgraph "Kubernetes Cluster (Minikube)"
+        subgraph "Data Plane (Istio Mesh)"
+            SS(Student Service) -- gRPC / mTLS --> QS(Quiz Service)
+            QS -- JDBC --> DB[(H2 In-Memory DB)]
+        end
+        
+        Istio[Istio D] -.-> Proxy1[Envoy Sidecar]
+        Istio -.-> Proxy2[Envoy Sidecar]
+    end
+    
+    linkStyle 1,2 stroke-width:2px,fill:none,stroke:green;
 ```
-Quiz Platform
-├── quiz-service (Port 8081)
-│   └── Manages quizzes and questions
-└── student-service (Port 8082)
-    └── Manages students and quiz attempts
+
+### Components
+1.  **Student Service** (`:8080`, `:9090`):
+    *   **Role**: Acts as the edge service/BFF (Backend for Frontend).
+    *   **Function**: Receives HTTP REST requests from users, converts them to gRPC calls, and forwards them to the Quiz Service.
+    *   **Key Tech**: Spring Boot Web, gRPC Client, Envoy Sidecar.
+
+2.  **Quiz Service** (`:9090`):
+    *   **Role**: Core domain service.
+    *   **Function**: Manages Quiz data and Questions. Handles gRPC requests.
+    *   **Key Tech**: Spring Boot Data JPA, H2 Database, gRPC Server, Envoy Sidecar.
+
+3.  **Common Proto**:
+    *   **Role**: Shared module containing Protocol Buffer (`.proto`) definitions.
+    *   **Examples**: `QuizRequest`, `QuizResponse`, `ResultRequest`.
+
+4.  **Istio Service Mesh**:
+    *   **Control Plane**: `istiod` manages configuration and certificate distribution.
+    *   **Data Plane**: Envoy proxies (sidecars) injected into every pod intercept and secure all traffic (mTLS).
+    *   **Ingress Gateway**: Manages external entry into the cluster.
+
+---
+
+## 🚀 Technologies Used
+*   **Java 17** (Amazon Corretto)
+*   **Spring Boot 3.2.1**
+*   **gRPC** (via `net.devh:grpc-spring-boot-starter`)
+*   **Protocol Buffers (Protobuf)**
+*   **Docker**
+*   **Kubernetes (Minikube)**
+*   **Istio 1.28**
+
+---
+
+## 🛠 Prerequisites
+*   [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+*   [Minikube](https://minikube.sigs.k8s.io/docs/start/)
+*   [Kubectl](https://kubernetes.io/docs/tasks/tools/)
+*   [Istio CLI (`istioctl`)](https://istio.io/latest/docs/setup/getting-started/#download)
+
+---
+
+## ⚙️ Setup & Deployment
+
+### 1. Start Environment
+Start Minikube and point your shell to its Docker daemon. This allows you to build images directly inside the cluster without pushing to a remote registry.
+```bash
+minikube start
+eval $(minikube docker-env)
 ```
 
-## Services
-
-### 1. Quiz Service (Port 8081)
-Handles quiz and question management with the following features:
-- Create, read, update, and delete quizzes
-- Support for multiple questions per quiz
-- Category and difficulty-based filtering
-- Question options and correct answer tracking
-
-**Key Endpoints:**
-- `POST /api/quizzes` - Create quiz
-- `GET /api/quizzes` - Get all quizzes
-- `GET /api/quizzes/{id}` - Get quiz by ID
-- `GET /api/quizzes/category/{category}` - Filter by category
-
-[📖 Quiz Service Documentation](./quiz-service/README.md)
-
-### 2. Student Service (Port 8082)
-Manages student profiles and quiz attempt records with the following features:
-- Student registration and profile management
-- Email-based lookup with duplicate prevention
-- Quiz attempt tracking and history
-- Performance analytics per student or quiz
-
-**Key Endpoints:**
-- `POST /api/students` - Register student
-- `GET /api/students` - Get all students
-- `POST /api/quiz-attempts` - Record quiz attempt
-- `GET /api/quiz-attempts/student/{studentId}` - Get student's attempts
-
-[📖 Student Service Documentation](./student-service/README.md)
-
-## Technology Stack
-
-| Technology | Version |
-|------------|---------|
-| Spring Boot | 3.2.1 |
-| Java | 17 |
-| Database | H2 (in-memory) |
-| Build Tool | Maven |
-| ORM | Spring Data JPA |
-
-## Project Structure
-
+### 2. Install Istio
+Install Istio if not already present.
+```bash
+istioctl install --set profile=demo -y
 ```
+
+### 3. Build & Dockerize
+Build the Java applications and create the Docker images.
+```bash
+./mvnw clean install -DskipTests
+
+docker build -t quiz-service:1.0.0 quiz-service/
+docker build -t student-service:1.0.0 student-service/
+```
+
+### 4. Deploy to Kubernetes
+Apply the database namespace, deployments, and Istio configuration.
+```bash
+kubectl apply -f k8s/
+```
+*   `namespace.yaml`: Creates `quiz-platform` namespace with `istio-injection=enabled`.
+*   `quiz-deployment.yaml`: Deploys Quiz Service.
+*   `student-deployment.yaml`: Deploys Student Service.
+*   `istio-gateway.yaml`: Configures the Ingress Gateway and VirtualService.
+
+---
+
+## ✅ Verification
+
+### Check Pods
+Ensure all pods show **2/2** containers (1 for App, 1 for Istio Sidecar).
+```bash
+kubectl get pods -n quiz-platform
+```
+
+### Test Workflow (via Port Forward)
+Since we are on Minikube, port-forwarding is the easiest way to test.
+
+1.  **Expose Student Service**:
+    ```bash
+    kubectl port-forward svc/student-service 8080:8080 -n quiz-platform
+    ```
+
+2.  **Take a Quiz** (HTTP GET -> gRPC GetQuiz):
+    ```bash
+    curl http://localhost:8080/student/quiz/1
+    ```
+    *Response:* Details of the "General Knowledge" quiz.
+
+3.  **Submit Result** (HTTP POST -> gRPC SubmitResult):
+    ```bash
+    curl -X POST "http://localhost:8080/student/quiz/1/submit?studentId=student123&score=95"
+    ```
+    *Response:* "Result processed successfully"
+
+---
+
+## 🔒 Security & Robustness (Why Service Mesh?)
+
+1.  **Mutual TLS (mTLS)**: All traffic between `student-service` and `quiz-service` is automatically encrypted by the Envoy sidecars. You don't need to implement TLS in Java code.
+    *   *Verify:* `istioctl x describe pod -n quiz-platform <student-pod>` shows strict/permissive mTLS.
+2.  **Traffic Management**: Istio allows for advanced routing (Canary deployments, A/B testing) via `VirtualServices`.
+3.  **Observability**: Istio automatically collects metrics and traces for all calls (viewable in Kiali/Jaeger if installed).
+
+## 📂 Project Structure
+```text
 Microservices_PE/
-├── quiz-service/
-│   ├── src/
-│   │   ├── main/
-│   │   │   ├── java/com/quizplatform/quiz/
-│   │   │   │   ├── controller/
-│   │   │   │   ├── service/
-│   │   │   │   ├── repository/
-│   │   │   │   ├── model/
-│   │   │   │   ├── dto/
-│   │   │   │   └── exception/
-│   │   │   └── resources/
-│   │   │       └── application.yml
-│   │   └── test/
-│   ├── pom.xml
-│   └── README.md
-│
-└── student-service/
-    ├── src/
-    │   ├── main/
-    │   │   ├── java/com/quizplatform/student/
-    │   │   │   ├── controller/
-    │   │   │   ├── service/
-    │   │   │   ├── repository/
-    │   │   │   ├── model/
-    │   │   │   ├── dto/
-    │   │   │   └── exception/
-    │   │   └── resources/
-    │   │       └── application.yml
-    │   └── test/
-    ├── pom.xml
-    └── README.md
+├── common-proto/       # Shared Protobuf Definitions
+├── quiz-service/       # gRPC Server (Domain Logic)
+├── student-service/    # gRPC Client (Edge Service/Controller)
+├── k8s/                # Kubernetes Manifests
+├── pom.xml             # Parent Maven POM
+└── README.md           # Documentation
 ```
-
-## Getting Started
-
-### Prerequisites
-- Java 17 or higher
-- Maven 3.6+
-
-### Running the Services
-
-**Option 1: Run each service individually**
-
-```bash
-# Terminal 1 - Start Quiz Service
-cd quiz-service
-mvn spring-boot:run
-
-# Terminal 2 - Start Student Service
-cd student-service
-mvn spring-boot:run
-```
-
-**Option 2: Build and run JAR files**
-
-```bash
-# Build both services
-cd quiz-service && mvn clean package && cd ..
-cd student-service && mvn clean package && cd ..
-
-# Run the services
-java -jar quiz-service/target/quiz-service-1.0.0.jar &
-java -jar student-service/target/student-service-1.0.0.jar &
-```
-
-### Verify Services are Running
-
-```bash
-# Check Quiz Service
-curl http://localhost:8081/api/quizzes
-
-# Check Student Service
-curl http://localhost:8082/api/students
-```
-
-## Database Access
-
-Both services use H2 in-memory databases with web consoles:
-
-- **Quiz Service**: http://localhost:8081/h2-console
-  - JDBC URL: `jdbc:h2:mem:quizdb`
-  - Username: `sa`
-  - Password: (empty)
-
-- **Student Service**: http://localhost:8082/h2-console
-  - JDBC URL: `jdbc:h2:mem:studentdb`
-  - Username: `sa`
-  - Password: (empty)
-
-## Quick Example Workflow
-
-### 1. Create a Quiz
-
-```bash
-curl -X POST http://localhost:8081/api/quizzes \
-  -H "Content-Type: application/json" \
-  -d '{
-    "title": "Java Fundamentals",
-    "description": "Test your Java knowledge",
-    "category": "Programming",
-    "difficulty": "EASY",
-    "questions": [
-      {
-        "questionText": "What is polymorphism?",
-        "options": ["Method overloading", "Method overriding", "Both", "Neither"],
-        "correctAnswer": "Both",
-        "points": 10
-      }
-    ]
-  }'
-```
-
-### 2. Register a Student
-
-```bash
-curl -X POST http://localhost:8082/api/students \
-  -H "Content-Type: application/json" \
-  -d '{
-    "firstName": "Alice",
-    "lastName": "Smith",
-    "email": "alice.smith@example.com",
-    "grade": "A"
-  }'
-```
-
-### 3. Record a Quiz Attempt
-
-```bash
-curl -X POST http://localhost:8082/api/quiz-attempts \
-  -H "Content-Type: application/json" \
-  -d '{
-    "studentId": 1,
-    "quizId": 1,
-    "score": 90.0,
-    "timeTaken": 180
-  }'
-```
-
-### 4. View Student's Quiz History
-
-```bash
-curl http://localhost:8082/api/quiz-attempts/student/1
-```
-
-## Key Design Patterns
-
-### 1. **Database per Service**
-Each microservice has its own database (quizdb and studentdb), ensuring loose coupling.
-
-### 2. **Layered Architecture**
-- **Controller Layer**: REST endpoints and request handling
-- **Service Layer**: Business logic
-- **Repository Layer**: Data persistence
-- **DTO Layer**: Data transfer objects for API contracts
-
-### 3. **Exception Handling**
-Global exception handlers provide consistent error responses across all services.
-
-### 4. **Validation**
-Jakarta Bean Validation annotations ensure data integrity at the API boundary.
-
-## Future Roadmap (Service Mesh Features)
-
-Phase 2 will introduce service mesh capabilities:
-
-- [ ] **Service Discovery** - Eureka Server for dynamic service registration
-- [ ] **API Gateway** - Spring Cloud Gateway for routing and load balancing
-- [ ] **Circuit Breaker** - Resilience4j for fault tolerance
-- [ ] **Distributed Tracing** - Sleuth and Zipkin for request tracking
-- [ ] **Centralized Configuration** - Spring Cloud Config Server
-- [ ] **Inter-service Communication** - REST/gRPC between services
-- [ ] **Authentication** - JWT-based security with OAuth2
-
-## Common Issues and Solutions
-
-### Port Already in Use
-```bash
-# Kill process on port 8081 or 8082
-lsof -ti:8081 | xargs kill -9
-lsof -ti:8082 | xargs kill -9
-```
-
-### Maven Build Fails
-```bash
-# Clean and rebuild
-mvn clean install -U
-```
-
-### H2 Console Not Accessible
-Ensure the service is running and check `application.yml` has:
-```yaml
-spring:
-  h2:
-    console:
-      enabled: true
-```
-
-## Contributing
-
-When adding new features:
-1. Follow the existing package structure
-2. Add appropriate DTOs for API contracts
-3. Implement service interfaces before implementations
-4. Add global exception handling for new exceptions
-5. Update README documentation
-
-## License
-
-This project is created for educational purposes.
