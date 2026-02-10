@@ -1,5 +1,6 @@
 /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/student-service/src/main/java/com/quizplatform/student/exception/DuplicateEmailException.java
 /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/student-service/src/main/java/com/quizplatform/student/controller/StudentController.java
+/Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/student-service/src/main/java/com/quizplatform/student/service/QuizClientService.java
 /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/student-service/src/main/java/com/quizplatform/student/model/QuizAttempt.java
 /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/student-service/src/main/java/com/quizplatform/student/service/QuizAttemptServiceImpl.java
 /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/student-service/src/main/java/com/quizplatform/student/service/StudentService.java

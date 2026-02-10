@@ -16,6 +16,7 @@ import java.util.stream.Collectors;
 public class QuizGrpcService extends QuizServiceGrpc.QuizServiceImplBase {
 
     private final QuizRepository quizRepository;
+    private final com.quizplatform.quiz.repository.ResultRepository resultRepository;
 
     @Override
     @Transactional(readOnly = true)
@@ -49,22 +50,59 @@ public class QuizGrpcService extends QuizServiceGrpc.QuizServiceImplBase {
     }
 
     @Override
+    @Transactional
     public void submitResult(ResultRequest request, StreamObserver<ResultResponse> responseObserver) {
-        // Logic to save result would go here. For now, we just acknowledge.
-        // In a real app, we might save to a ResultRepository or publish an event.
-        
-        String message = String.format("Result received for Quiz %s, Student %s. Score: %d", 
-                request.getQuizId(), request.getStudentId(), request.getScore());
-        
-        System.out.println(message); // Log to console for verifying communication
+        try {
+            com.quizplatform.quiz.model.Result result = new com.quizplatform.quiz.model.Result();
+            result.setQuizId(request.getQuizId());
+            result.setStudentId(request.getStudentId());
+            result.setScore(request.getScore());
+            
+            resultRepository.save(result);
+            
+            String message = String.format("Result stored for Quiz %s, Student %s. Score: %d", 
+                    request.getQuizId(), request.getStudentId(), request.getScore());
+            System.out.println(message);
+    
+            ResultResponse response = ResultResponse.newBuilder()
+                    .setSuccess(true)
+                    .setMessage("Result processed successfully")
+                    .build();
+    
+            responseObserver.onNext(response);
+            responseObserver.onCompleted();
+        } catch (Exception e) {
+             responseObserver.onError(io.grpc.Status.INTERNAL
+                    .withDescription("Error saving result: " + e.getMessage())
+                    .asRuntimeException());
+        }
+    }
 
-        ResultResponse response = ResultResponse.newBuilder()
-                .setSuccess(true)
-                .setMessage("Result processed successfully")
+    @Override
+    public void getAllResults(GetAllResultsRequest request, StreamObserver<GetAllResultsResponse> responseObserver) {
+        try {
+            String quizId = request.getQuizId();
+            List<com.quizplatform.quiz.model.Result> results = resultRepository.findByQuizId(quizId);
+            
+            List<ResultEntry> resultEntries = results.stream()
+                .map(r -> ResultEntry.newBuilder()
+                    .setStudentId(r.getStudentId())
+                    .setScore(r.getScore())
+                    .setTimestamp(r.getTimestamp() != null ? r.getTimestamp().toString() : "")
+                    .build())
+                .collect(Collectors.toList());
+                
+            GetAllResultsResponse response = GetAllResultsResponse.newBuilder()
+                .addAllResults(resultEntries)
                 .build();
-
-        responseObserver.onNext(response);
-        responseObserver.onCompleted();
+                
+            responseObserver.onNext(response);
+            responseObserver.onCompleted();
+        } catch (Exception e) {
+            responseObserver.onError(io.grpc.Status.INTERNAL
+                    .withDescription("Error fetching results: " + e.getMessage())
+                    .asRuntimeException());
+        }
     }
 
     private com.quizplatform.common.Question mapToProtoQuestion(com.quizplatform.quiz.model.Question entity) {

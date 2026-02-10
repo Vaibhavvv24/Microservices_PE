@@ -40,6 +40,21 @@ public final class QuizServiceProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_quizplatform_common_ResultResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_quizplatform_common_GetAllResultsRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_quizplatform_common_GetAllResultsRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_quizplatform_common_GetAllResultsResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_quizplatform_common_GetAllResultsResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_quizplatform_common_ResultEntry_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_quizplatform_common_ResultEntry_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -57,14 +72,21 @@ public final class QuizServiceProto {
       "\t\022\014\n\004text\030\002 \001(\t\022\017\n\007options\030\003 \003(\t\"A\n\rResu" +
       "ltRequest\022\016\n\006quizId\030\001 \001(\t\022\021\n\tstudentId\030\002" +
       " \001(\t\022\r\n\005score\030\003 \001(\005\"2\n\016ResultResponse\022\017\n" +
-      "\007message\030\001 \001(\t\022\017\n\007success\030\002 \001(\0102\306\001\n\013Quiz" +
-      "Service\022V\n\007GetQuiz\022$.com.quizplatform.co" +
-      "mmon.QuizRequest\032%.com.quizplatform.comm" +
-      "on.QuizResponse\022_\n\014SubmitResult\022&.com.qu" +
-      "izplatform.common.ResultRequest\032\'.com.qu" +
-      "izplatform.common.ResultResponseB-\n\027com." +
-      "quizplatform.commonB\020QuizServiceProtoP\001b" +
-      "\006proto3"
+      "\007message\030\001 \001(\t\022\017\n\007success\030\002 \001(\010\"&\n\024GetAl" +
+      "lResultsRequest\022\016\n\006quizId\030\001 \001(\t\"N\n\025GetAl" +
+      "lResultsResponse\0225\n\007results\030\001 \003(\0132$.com." +
+      "quizplatform.common.ResultEntry\"B\n\013Resul" +
+      "tEntry\022\021\n\tstudentId\030\001 \001(\t\022\r\n\005score\030\002 \001(\005" +
+      "\022\021\n\ttimestamp\030\003 \001(\t2\266\002\n\013QuizService\022V\n\007G" +
+      "etQuiz\022$.com.quizplatform.common.QuizReq" +
+      "uest\032%.com.quizplatform.common.QuizRespo" +
+      "nse\022_\n\014SubmitResult\022&.com.quizplatform.c" +
+      "ommon.ResultRequest\032\'.com.quizplatform.c" +
+      "ommon.ResultResponse\022n\n\rGetAllResults\022-." +
+      "com.quizplatform.common.GetAllResultsReq" +
+      "uest\032..com.quizplatform.common.GetAllRes" +
+      "ultsResponseB-\n\027com.quizplatform.commonB" +
+      "\020QuizServiceProtoP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -100,6 +122,24 @@ public final class QuizServiceProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_quizplatform_common_ResultResponse_descriptor,
         new java.lang.String[] { "Message", "Success", });
+    internal_static_com_quizplatform_common_GetAllResultsRequest_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_com_quizplatform_common_GetAllResultsRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_quizplatform_common_GetAllResultsRequest_descriptor,
+        new java.lang.String[] { "QuizId", });
+    internal_static_com_quizplatform_common_GetAllResultsResponse_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_com_quizplatform_common_GetAllResultsResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_quizplatform_common_GetAllResultsResponse_descriptor,
+        new java.lang.String[] { "Results", });
+    internal_static_com_quizplatform_common_ResultEntry_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_com_quizplatform_common_ResultEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_quizplatform_common_ResultEntry_descriptor,
+        new java.lang.String[] { "StudentId", "Score", "Timestamp", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

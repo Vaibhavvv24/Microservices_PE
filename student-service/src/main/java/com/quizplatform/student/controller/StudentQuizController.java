@@ -10,49 +10,23 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/student/quiz")
+@lombok.RequiredArgsConstructor
 public class StudentQuizController {
 
-    @GrpcClient("quiz-service")
-    private QuizServiceGrpc.QuizServiceBlockingStub quizServiceStub;
+    private final com.quizplatform.student.service.QuizClientService quizClientService;
 
     @GetMapping("/{quizId}")
     public String startQuiz(@PathVariable String quizId) {
-        try {
-            QuizRequest request = QuizRequest.newBuilder()
-                    .setQuizId(quizId)
-                    .build();
-
-            QuizResponse response = quizServiceStub.getQuiz(request);
-            
-            // Format response for display
-            StringBuilder sb = new StringBuilder();
-            sb.append("Quiz: ").append(response.getTitle()).append("\n");
-            response.getQuestionsList().forEach(q -> {
-                sb.append("Q: ").append(q.getText()).append("\n");
-                q.getOptionsList().forEach(o -> sb.append(" - ").append(o).append("\n"));
-                sb.append("\n");
-            });
-            
-            return sb.toString();
-        } catch (Exception e) {
-            return "Error starting quiz: " + e.getMessage();
-        }
+        return quizClientService.getQuiz(quizId);
     }
 
     @PostMapping("/{quizId}/submit")
     public String submitQuiz(@PathVariable String quizId, @RequestParam String studentId, @RequestParam int score) {
-        try {
-            ResultRequest request = ResultRequest.newBuilder()
-                    .setQuizId(quizId)
-                    .setStudentId(studentId)
-                    .setScore(score)
-                    .build();
+        return quizClientService.submitQuizResult(quizId, studentId, score);
+    }
 
-            ResultResponse response = quizServiceStub.submitResult(request);
-            
-            return response.getMessage();
-        } catch (Exception e) {
-            return "Error submitting quiz: " + e.getMessage();
-        }
+    @GetMapping("/{quizId}/scores")
+    public java.util.List<java.util.Map<String, Object>> getStudentScores(@PathVariable String quizId) {
+        return quizClientService.getQuizResults(quizId);
     }
 }

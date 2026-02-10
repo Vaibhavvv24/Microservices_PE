@@ -77,6 +77,37 @@ public final class QuizServiceGrpc {
     return getSubmitResultMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.quizplatform.common.GetAllResultsRequest,
+      com.quizplatform.common.GetAllResultsResponse> getGetAllResultsMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetAllResults",
+      requestType = com.quizplatform.common.GetAllResultsRequest.class,
+      responseType = com.quizplatform.common.GetAllResultsResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.quizplatform.common.GetAllResultsRequest,
+      com.quizplatform.common.GetAllResultsResponse> getGetAllResultsMethod() {
+    io.grpc.MethodDescriptor<com.quizplatform.common.GetAllResultsRequest, com.quizplatform.common.GetAllResultsResponse> getGetAllResultsMethod;
+    if ((getGetAllResultsMethod = QuizServiceGrpc.getGetAllResultsMethod) == null) {
+      synchronized (QuizServiceGrpc.class) {
+        if ((getGetAllResultsMethod = QuizServiceGrpc.getGetAllResultsMethod) == null) {
+          QuizServiceGrpc.getGetAllResultsMethod = getGetAllResultsMethod =
+              io.grpc.MethodDescriptor.<com.quizplatform.common.GetAllResultsRequest, com.quizplatform.common.GetAllResultsResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetAllResults"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.quizplatform.common.GetAllResultsRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.quizplatform.common.GetAllResultsResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new QuizServiceMethodDescriptorSupplier("GetAllResults"))
+              .build();
+        }
+      }
+    }
+    return getGetAllResultsMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -138,6 +169,13 @@ public final class QuizServiceGrpc {
         io.grpc.stub.StreamObserver<com.quizplatform.common.ResultResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getSubmitResultMethod(), responseObserver);
     }
+
+    /**
+     */
+    default void getAllResults(com.quizplatform.common.GetAllResultsRequest request,
+        io.grpc.stub.StreamObserver<com.quizplatform.common.GetAllResultsResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetAllResultsMethod(), responseObserver);
+    }
   }
 
   /**
@@ -182,6 +220,14 @@ public final class QuizServiceGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getSubmitResultMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void getAllResults(com.quizplatform.common.GetAllResultsRequest request,
+        io.grpc.stub.StreamObserver<com.quizplatform.common.GetAllResultsResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetAllResultsMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -212,6 +258,13 @@ public final class QuizServiceGrpc {
     public com.quizplatform.common.ResultResponse submitResult(com.quizplatform.common.ResultRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getSubmitResultMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.quizplatform.common.GetAllResultsResponse getAllResults(com.quizplatform.common.GetAllResultsRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetAllResultsMethod(), getCallOptions(), request);
     }
   }
 
@@ -246,10 +299,19 @@ public final class QuizServiceGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getSubmitResultMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.quizplatform.common.GetAllResultsResponse> getAllResults(
+        com.quizplatform.common.GetAllResultsRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetAllResultsMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_GET_QUIZ = 0;
   private static final int METHODID_SUBMIT_RESULT = 1;
+  private static final int METHODID_GET_ALL_RESULTS = 2;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -275,6 +337,10 @@ public final class QuizServiceGrpc {
         case METHODID_SUBMIT_RESULT:
           serviceImpl.submitResult((com.quizplatform.common.ResultRequest) request,
               (io.grpc.stub.StreamObserver<com.quizplatform.common.ResultResponse>) responseObserver);
+          break;
+        case METHODID_GET_ALL_RESULTS:
+          serviceImpl.getAllResults((com.quizplatform.common.GetAllResultsRequest) request,
+              (io.grpc.stub.StreamObserver<com.quizplatform.common.GetAllResultsResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -308,6 +374,13 @@ public final class QuizServiceGrpc {
               com.quizplatform.common.ResultRequest,
               com.quizplatform.common.ResultResponse>(
                 service, METHODID_SUBMIT_RESULT)))
+        .addMethod(
+          getGetAllResultsMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              com.quizplatform.common.GetAllResultsRequest,
+              com.quizplatform.common.GetAllResultsResponse>(
+                service, METHODID_GET_ALL_RESULTS)))
         .build();
   }
 
@@ -358,6 +431,7 @@ public final class QuizServiceGrpc {
               .setSchemaDescriptor(new QuizServiceFileDescriptorSupplier())
               .addMethod(getGetQuizMethod())
               .addMethod(getSubmitResultMethod())
+              .addMethod(getGetAllResultsMethod())
               .build();
         }
       }

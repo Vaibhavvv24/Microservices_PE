@@ -9,6 +9,7 @@ option java_outer_classname = "QuizServiceProto";
 service QuizService {
   rpc GetQuiz (QuizRequest) returns (QuizResponse);
   rpc SubmitResult (ResultRequest) returns (ResultResponse);
+  rpc GetAllResults (GetAllResultsRequest) returns (GetAllResultsResponse);
 }
 
 message QuizRequest {
@@ -36,4 +37,18 @@ message ResultRequest {
 message ResultResponse {
   string message = 1;
   bool success = 2;
+}
+
+message GetAllResultsRequest {
+  string quizId = 1;
+}
+
+message GetAllResultsResponse {
+  repeated ResultEntry results = 1;
+}
+
+message ResultEntry {
+  string studentId = 1;
+  int32 score = 2;
+  string timestamp = 3;
 }

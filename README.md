@@ -2,6 +2,12 @@
 
 A robust microservices architecture demonstrating **Spring Boot**, **gRPC**, **Kubernetes**, and **Istio Service Mesh**. This project simulates a Quiz Platform where students can fetch quizzes and submit results, with secure and efficient inter-service communication managed by Istio.
 
+A robust microservices architecture demonstrating **Spring Boot**, **gRPC**, **Kubernetes**, and **Istio Service Mesh**. This project simulates a Quiz Platform where students can fetch quizzes and submit results, with secure and efficient inter-service communication managed by Istio.
+
+## 📚 Documentation
+*   [**Functional Features & API Reference**](README_FEATURES.md): Detailed guide on all API endpoints and service capabilities.
+*   [**System & Network Architecture**](README_ARCHITECTURE.md): Deep dive into gRPC, Istio, and Cluster architecture.
+
 ## 🏗 System Architecture
 
 The system consists of two core microservices communicating via **gRPC** (Google Remote Procedure Call) for high performance and strong typing.
@@ -137,6 +143,48 @@ Since we are on Minikube, port-forwarding is the easiest way to test.
     *   *Verify:* `istioctl x describe pod -n quiz-platform <student-pod>` shows strict/permissive mTLS.
 2.  **Traffic Management**: Istio allows for advanced routing (Canary deployments, A/B testing) via `VirtualServices`.
 3.  **Observability**: Istio automatically collects metrics and traces for all calls (viewable in Kiali/Jaeger if installed).
+
+## 🗄️ Database Schema (H2 In-Memory)
+
+Both services use **H2 Database** running in memory.
+
+### Quiz Service (`jdbc:h2:mem:quizdb`)
+1.  **Quiz**
+    *   `id`: Long (PK)
+    *   `title`: String
+    *   `description`: String
+    *   `category`: String
+    *   `difficulty`: String
+    *   `createdDate`: Timestamp
+2.  **Question**
+    *   `id`: Long (PK)
+    *   `quiz_id`: Long (FK)
+    *   `questionText`: String
+    *   `options`: List<String> (ElementCollection)
+    *   `correctAnswer`: String
+    *   `points`: Integer
+3.  **Result**
+    *   `id`: Long (PK)
+    *   `quizId`: String
+    *   `studentId`: String
+    *   `score`: Integer
+    *   `timestamp`: Timestamp
+
+### Student Service (`jdbc:h2:mem:studentdb`)
+1.  **Student**
+    *   `id`: Long (PK)
+    *   `firstName`: String
+    *   `lastName`: String
+    *   `email`: String (Unique)
+    *   `enrollmentDate`: Timestamp
+    *   `grade`: String
+2.  **QuizAttempt** (Local tracking)
+    *   `id`: Long (PK)
+    *   `studentId`: Long
+    *   `quizId`: Long
+    *   `score`: Double
+    *   `attemptDate`: Timestamp
+    *   `timeTaken`: Integer
 
 ## 📂 Project Structure
 ```text
