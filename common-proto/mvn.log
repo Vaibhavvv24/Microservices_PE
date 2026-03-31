@@ -1,0 +1,492 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Detecting the operating system and CPU architecture
+[INFO] ------------------------------------------------------------------------
+[INFO] os.detected.name: osx
+[INFO] os.detected.arch: aarch_64
+[INFO] os.detected.bitness: 64
+[INFO] os.detected.version: 26.3
+[INFO] os.detected.version.major: 26
+[INFO] os.detected.version.minor: 3
+[INFO] os.detected.classifier: osx-aarch_64
+[INFO] 
+[INFO] -------------------< com.quizplatform:common-proto >--------------------
+[INFO] Building common-proto 1.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.3.2:clean (default-clean) @ common-proto ---
+[INFO] Deleting /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target
+[INFO] 
+[INFO] --- protobuf:0.6.1:compile (default) @ common-proto ---
+[INFO] Compiling 2 proto file(s) to /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/java
+[INFO] 
+[INFO] --- protobuf:0.6.1:compile-custom (default) @ common-proto ---
+[INFO] Compiling 2 proto file(s) to /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ common-proto ---
+[INFO] skip non existing resourceDirectory /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/src/main/resources
+[INFO] skip non existing resourceDirectory /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/src/main/resources
+[INFO] Copying 2 resources from src/main/proto to target/classes
+[INFO] Copying 2 resources from src/main/proto to target/classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ common-proto ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 1 source file with javac [debug release 17] to target/classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[18,75] cannot find symbol
+  symbol:   class QuizRequest
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[19,30] cannot find symbol
+  symbol:   class QuizResponse
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[26,65] cannot find symbol
+  symbol:   class QuizRequest
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[27,30] cannot find symbol
+  symbol:   class QuizResponse
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[49,75] cannot find symbol
+  symbol:   class ResultRequest
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[50,30] cannot find symbol
+  symbol:   class ResultResponse
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[57,65] cannot find symbol
+  symbol:   class ResultRequest
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[58,30] cannot find symbol
+  symbol:   class ResultResponse
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[80,75] cannot find symbol
+  symbol:   class GetAllResultsRequest
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[81,30] cannot find symbol
+  symbol:   class GetAllResultsResponse
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[88,65] cannot find symbol
+  symbol:   class GetAllResultsRequest
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[89,30] cannot find symbol
+  symbol:   class GetAllResultsResponse
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[161,49] cannot find symbol
+  symbol:   class QuizRequest
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[162,60] cannot find symbol
+  symbol:   class QuizResponse
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[168,54] cannot find symbol
+  symbol:   class ResultRequest
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[169,60] cannot find symbol
+  symbol:   class ResultResponse
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[175,55] cannot find symbol
+  symbol:   class GetAllResultsRequest
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[176,60] cannot find symbol
+  symbol:   class GetAllResultsResponse
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[290,32] cannot find symbol
+  symbol:   class QuizRequest
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[289,86] cannot find symbol
+  symbol:   class QuizResponse
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[298,32] cannot find symbol
+  symbol:   class ResultRequest
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[297,86] cannot find symbol
+  symbol:   class ResultResponse
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[306,32] cannot find symbol
+  symbol:   class GetAllResultsRequest
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[305,86] cannot find symbol
+  symbol:   class GetAllResultsResponse
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[251,80] cannot find symbol
+  symbol:   class QuizRequest
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[251,35] cannot find symbol
+  symbol:   class QuizResponse
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[258,87] cannot find symbol
+  symbol:   class ResultRequest
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[258,35] cannot find symbol
+  symbol:   class ResultResponse
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[265,95] cannot find symbol
+  symbol:   class GetAllResultsRequest
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[265,35] cannot find symbol
+  symbol:   class GetAllResultsResponse
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[210,48] cannot find symbol
+  symbol:   class QuizRequest
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[211,60] cannot find symbol
+  symbol:   class QuizResponse
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[218,53] cannot find symbol
+  symbol:   class ResultRequest
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[219,60] cannot find symbol
+  symbol:   class ResultResponse
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[226,54] cannot find symbol
+  symbol:   class GetAllResultsRequest
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[227,60] cannot find symbol
+  symbol:   class GetAllResultsResponse
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[23,44] cannot find symbol
+  symbol:   class QuizRequest
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[24,45] cannot find symbol
+  symbol:   class QuizResponse
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[54,44] cannot find symbol
+  symbol:   class ResultRequest
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[55,45] cannot find symbol
+  symbol:   class ResultResponse
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[85,44] cannot find symbol
+  symbol:   class GetAllResultsRequest
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[86,45] cannot find symbol
+  symbol:   class GetAllResultsResponse
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[28,53] cannot find symbol
+  symbol:   class QuizRequest
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[28,90] cannot find symbol
+  symbol:   class QuizResponse
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[33,64] cannot find symbol
+  symbol:   class QuizRequest
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[33,101] cannot find symbol
+  symbol:   class QuizResponse
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[38,42] cannot find symbol
+  symbol:   class QuizRequest
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[40,42] cannot find symbol
+  symbol:   class QuizResponse
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[59,53] cannot find symbol
+  symbol:   class ResultRequest
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[59,92] cannot find symbol
+  symbol:   class ResultResponse
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[64,64] cannot find symbol
+  symbol:   class ResultRequest
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[64,103] cannot find symbol
+  symbol:   class ResultResponse
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[69,42] cannot find symbol
+  symbol:   class ResultRequest
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[71,42] cannot find symbol
+  symbol:   class ResultResponse
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[90,53] cannot find symbol
+  symbol:   class GetAllResultsRequest
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[90,99] cannot find symbol
+  symbol:   class GetAllResultsResponse
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[95,64] cannot find symbol
+  symbol:   class GetAllResultsRequest
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[95,110] cannot find symbol
+  symbol:   class GetAllResultsResponse
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[100,42] cannot find symbol
+  symbol:   class GetAllResultsRequest
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[102,42] cannot find symbol
+  symbol:   class GetAllResultsResponse
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[334,55] cannot find symbol
+  symbol:   class QuizRequest
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[335,67] cannot find symbol
+  symbol:   class QuizResponse
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[338,60] cannot find symbol
+  symbol:   class ResultRequest
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[339,67] cannot find symbol
+  symbol:   class ResultResponse
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[342,61] cannot find symbol
+  symbol:   class GetAllResultsRequest
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[343,67] cannot find symbol
+  symbol:   class GetAllResultsResponse
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[367,38] cannot find symbol
+  symbol:   class QuizRequest
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[368,38] cannot find symbol
+  symbol:   class QuizResponse
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[374,38] cannot find symbol
+  symbol:   class ResultRequest
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[375,38] cannot find symbol
+  symbol:   class ResultResponse
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[381,38] cannot find symbol
+  symbol:   class GetAllResultsRequest
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[382,38] cannot find symbol
+  symbol:   class GetAllResultsResponse
+  location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[393,37] cannot find symbol
+  symbol:   class QuizServiceProto
+  location: package com.quizplatform.common
+[INFO] 73 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  4.176 s
+[INFO] Finished at: 2026-03-31T19:01:01+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (default-compile) on project common-proto: Compilation failure: Compilation failure: 
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[18,75] cannot find symbol
+[ERROR]   symbol:   class QuizRequest
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[19,30] cannot find symbol
+[ERROR]   symbol:   class QuizResponse
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[26,65] cannot find symbol
+[ERROR]   symbol:   class QuizRequest
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[27,30] cannot find symbol
+[ERROR]   symbol:   class QuizResponse
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[49,75] cannot find symbol
+[ERROR]   symbol:   class ResultRequest
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[50,30] cannot find symbol
+[ERROR]   symbol:   class ResultResponse
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[57,65] cannot find symbol
+[ERROR]   symbol:   class ResultRequest
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[58,30] cannot find symbol
+[ERROR]   symbol:   class ResultResponse
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[80,75] cannot find symbol
+[ERROR]   symbol:   class GetAllResultsRequest
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[81,30] cannot find symbol
+[ERROR]   symbol:   class GetAllResultsResponse
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[88,65] cannot find symbol
+[ERROR]   symbol:   class GetAllResultsRequest
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[89,30] cannot find symbol
+[ERROR]   symbol:   class GetAllResultsResponse
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[161,49] cannot find symbol
+[ERROR]   symbol:   class QuizRequest
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[162,60] cannot find symbol
+[ERROR]   symbol:   class QuizResponse
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[168,54] cannot find symbol
+[ERROR]   symbol:   class ResultRequest
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[169,60] cannot find symbol
+[ERROR]   symbol:   class ResultResponse
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[175,55] cannot find symbol
+[ERROR]   symbol:   class GetAllResultsRequest
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[176,60] cannot find symbol
+[ERROR]   symbol:   class GetAllResultsResponse
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[290,32] cannot find symbol
+[ERROR]   symbol:   class QuizRequest
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[289,86] cannot find symbol
+[ERROR]   symbol:   class QuizResponse
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[298,32] cannot find symbol
+[ERROR]   symbol:   class ResultRequest
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[297,86] cannot find symbol
+[ERROR]   symbol:   class ResultResponse
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[306,32] cannot find symbol
+[ERROR]   symbol:   class GetAllResultsRequest
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[305,86] cannot find symbol
+[ERROR]   symbol:   class GetAllResultsResponse
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[251,80] cannot find symbol
+[ERROR]   symbol:   class QuizRequest
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[251,35] cannot find symbol
+[ERROR]   symbol:   class QuizResponse
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[258,87] cannot find symbol
+[ERROR]   symbol:   class ResultRequest
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[258,35] cannot find symbol
+[ERROR]   symbol:   class ResultResponse
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[265,95] cannot find symbol
+[ERROR]   symbol:   class GetAllResultsRequest
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[265,35] cannot find symbol
+[ERROR]   symbol:   class GetAllResultsResponse
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[210,48] cannot find symbol
+[ERROR]   symbol:   class QuizRequest
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[211,60] cannot find symbol
+[ERROR]   symbol:   class QuizResponse
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[218,53] cannot find symbol
+[ERROR]   symbol:   class ResultRequest
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[219,60] cannot find symbol
+[ERROR]   symbol:   class ResultResponse
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[226,54] cannot find symbol
+[ERROR]   symbol:   class GetAllResultsRequest
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[227,60] cannot find symbol
+[ERROR]   symbol:   class GetAllResultsResponse
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[23,44] cannot find symbol
+[ERROR]   symbol:   class QuizRequest
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[24,45] cannot find symbol
+[ERROR]   symbol:   class QuizResponse
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[54,44] cannot find symbol
+[ERROR]   symbol:   class ResultRequest
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[55,45] cannot find symbol
+[ERROR]   symbol:   class ResultResponse
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[85,44] cannot find symbol
+[ERROR]   symbol:   class GetAllResultsRequest
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[86,45] cannot find symbol
+[ERROR]   symbol:   class GetAllResultsResponse
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[28,53] cannot find symbol
+[ERROR]   symbol:   class QuizRequest
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[28,90] cannot find symbol
+[ERROR]   symbol:   class QuizResponse
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[33,64] cannot find symbol
+[ERROR]   symbol:   class QuizRequest
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[33,101] cannot find symbol
+[ERROR]   symbol:   class QuizResponse
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[38,42] cannot find symbol
+[ERROR]   symbol:   class QuizRequest
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[40,42] cannot find symbol
+[ERROR]   symbol:   class QuizResponse
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[59,53] cannot find symbol
+[ERROR]   symbol:   class ResultRequest
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[59,92] cannot find symbol
+[ERROR]   symbol:   class ResultResponse
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[64,64] cannot find symbol
+[ERROR]   symbol:   class ResultRequest
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[64,103] cannot find symbol
+[ERROR]   symbol:   class ResultResponse
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[69,42] cannot find symbol
+[ERROR]   symbol:   class ResultRequest
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[71,42] cannot find symbol
+[ERROR]   symbol:   class ResultResponse
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[90,53] cannot find symbol
+[ERROR]   symbol:   class GetAllResultsRequest
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[90,99] cannot find symbol
+[ERROR]   symbol:   class GetAllResultsResponse
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[95,64] cannot find symbol
+[ERROR]   symbol:   class GetAllResultsRequest
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[95,110] cannot find symbol
+[ERROR]   symbol:   class GetAllResultsResponse
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[100,42] cannot find symbol
+[ERROR]   symbol:   class GetAllResultsRequest
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[102,42] cannot find symbol
+[ERROR]   symbol:   class GetAllResultsResponse
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[334,55] cannot find symbol
+[ERROR]   symbol:   class QuizRequest
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[335,67] cannot find symbol
+[ERROR]   symbol:   class QuizResponse
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[338,60] cannot find symbol
+[ERROR]   symbol:   class ResultRequest
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[339,67] cannot find symbol
+[ERROR]   symbol:   class ResultResponse
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[342,61] cannot find symbol
+[ERROR]   symbol:   class GetAllResultsRequest
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[343,67] cannot find symbol
+[ERROR]   symbol:   class GetAllResultsResponse
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[367,38] cannot find symbol
+[ERROR]   symbol:   class QuizRequest
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[368,38] cannot find symbol
+[ERROR]   symbol:   class QuizResponse
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[374,38] cannot find symbol
+[ERROR]   symbol:   class ResultRequest
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[375,38] cannot find symbol
+[ERROR]   symbol:   class ResultResponse
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[381,38] cannot find symbol
+[ERROR]   symbol:   class GetAllResultsRequest
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[382,38] cannot find symbol
+[ERROR]   symbol:   class GetAllResultsResponse
+[ERROR]   location: package com.quizplatform.common
+[ERROR] /Users/krishdave/Documents/Krish Stuff/8th Semester/Microservices-PE/Microservices_PE/common-proto/target/generated-sources/protobuf/grpc-java/com/quizplatform/common/QuizServiceGrpc.java:[393,37] cannot find symbol
+[ERROR]   symbol:   class QuizServiceProto
+[ERROR]   location: package com.quizplatform.common
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
